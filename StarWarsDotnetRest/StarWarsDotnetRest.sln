@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsDotnetRest", "StarWarsDotnetRest.csproj", "{F149437F-F92F-429C-A469-8E012E576C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SWapi-CSharp", "..\..\SWapi-CSharp\SWapi-CSharp\SWapi-CSharp.csproj", "{CDCDE2C9-059D-4DA4-8B17-1F3142857F6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F149437F-F92F-429C-A469-8E012E576C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F149437F-F92F-429C-A469-8E012E576C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F149437F-F92F-429C-A469-8E012E576C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F149437F-F92F-429C-A469-8E012E576C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCDE2C9-059D-4DA4-8B17-1F3142857F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCDE2C9-059D-4DA4-8B17-1F3142857F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCDE2C9-059D-4DA4-8B17-1F3142857F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCDE2C9-059D-4DA4-8B17-1F3142857F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7DF008C-64D0-47DA-AA7A-751B8C11F1BB}
+	EndGlobalSection
+EndGlobal

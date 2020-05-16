@@ -1,0 +1,814 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SWapiCSharp</name>
+    </assembly>
+    <members>
+        <member name="T:StarWarsApiCSharp.BaseEntity">
+            <summary>
+            Base entity class contains common data.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.BaseEntity.Url">
+            <summary>
+            Gets or sets the URL from where was downloaded the entity.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.BaseEntity.Created">
+            <summary>
+            Gets or sets the date of creation of the entity.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.BaseEntity.Edited">
+            <summary>
+            Gets or sets the date of last modification.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.BaseEntity.EntryPath">
+            <summary>
+            Gets the path.
+            </summary>
+        </member>
+        <member name="M:StarWarsApiCSharp.BaseEntity.GetPath">
+            <summary>
+            Gets the path for extending base URL API.
+            </summary>
+            <returns>System.String the path.</returns>
+        </member>
+        <member name="T:StarWarsApiCSharp.DefaultDataService">
+            <summary>
+            This is the default service for consuming data from web.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.IDataService" />
+        </member>
+        <member name="F:StarWarsApiCSharp.DefaultDataService.webHelper">
+            <summary>
+            The web helper used for retrieve request and response
+            </summary>
+        </member>
+        <member name="M:StarWarsApiCSharp.DefaultDataService.#ctor(StarWarsApiCSharp.IWebHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StarWarsApiCSharp.DefaultDataService"/> class.
+            </summary>
+            <param name="webHelper">The web helper.</param>
+        </member>
+        <member name="M:StarWarsApiCSharp.DefaultDataService.GetDataResult(System.String)">
+            <summary>
+            Gets the result from response helper method.
+            </summary>
+            <param name="url">The URL.</param>
+            <returns>System.String or null if there are error while processing the request.</returns>
+        </member>
+        <member name="T:StarWarsApiCSharp.Film">
+            <summary>
+            Class Film.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.BaseEntity" />
+        </member>
+        <member name="F:StarWarsApiCSharp.Film.PathToEntity">
+            <summary>
+            The path that will be added to base API URL.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.EpisodeId">
+            <summary>
+            Gets or sets the episode identifier.
+            </summary>
+            <value>The episode identifier.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.OpeningCrawl">
+            <summary>
+            Gets or sets the opening crawl.
+            </summary>
+            <value>The opening crawl.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Director">
+            <summary>
+            Gets or sets the director.
+            </summary>
+            <value>The director.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Producer">
+            <summary>
+            Gets or sets the producer.
+            </summary>
+            <value>The producer.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.ReleaseDate">
+            <summary>
+            Gets or sets the release date.
+            </summary>
+            <value>The release date.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Species">
+            <summary>
+            Gets or sets the species.
+            </summary>
+            <value>The species.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Starships">
+            <summary>
+            Gets or sets the starships URLs.
+            </summary>
+            <value>The starships.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Vehicles">
+            <summary>
+            Gets or sets the vehicles URLs.
+            </summary>
+            <value>The vehicles.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Characters">
+            <summary>
+            Gets or sets the characters URLs.
+            </summary>
+            <value>The characters.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.Planets">
+            <summary>
+            Gets or sets the planets URLs.
+            </summary>
+            <value>The planets.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Film.EntryPath">
+            <summary>
+            Gets the path for extending base URL API.
+            </summary>
+            <value>The path.</value>
+        </member>
+        <member name="T:StarWarsApiCSharp.Helper`1">
+            <summary>
+            Class Helper contains results and option to navigate to other pages.
+            </summary>
+            <typeparam name="T"><see cref="T:StarWarsApiCSharp.BaseEntity" />Base entity.</typeparam>
+        </member>
+        <member name="P:StarWarsApiCSharp.Helper`1.Results">
+            <summary>
+            Gets or sets the results downloaded from http://SWAPI.co/.
+            </summary>
+            <value>The results.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Helper`1.Count">
+            <summary>
+            Gets or sets the count of the results.
+            </summary>
+            <value>The count of the results.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Helper`1.Next">
+            <summary>
+            Gets or sets the next page.
+            </summary>
+            <value>The next page.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Helper`1.Previous">
+            <summary>
+            Gets or sets the previous page.
+            </summary>
+            <value>The previous page.</value>
+        </member>
+        <member name="T:StarWarsApiCSharp.HelperInitializer`1">
+            <summary>
+            This static helper initializer is 3x faster than <see cref="M:System.Activator.CreateInstance``1"/>.
+            </summary>
+            <typeparam name="T">Generic object inherits <see cref="T:StarWarsApiCSharp.BaseEntity"/></typeparam>
+        </member>
+        <member name="F:StarWarsApiCSharp.HelperInitializer`1.Instance">
+            <summary>
+            Gets the instance of T.
+            </summary>
+            <value>
+            The instance.
+            </value>
+        </member>
+        <member name="T:StarWarsApiCSharp.IDataService">
+            <summary>
+            A Service for consuming data from remote source. 
+            </summary>
+        </member>
+        <member name="M:StarWarsApiCSharp.IDataService.GetDataResult(System.String)">
+            <summary>
+            Gets the data result as JSON. The syntax and format of the result should be valid. 
+            </summary>
+            <param name="url">The URL for consuming.</param>
+            <returns>JSON data as string.</returns>
+        </member>
+        <member name="T:StarWarsApiCSharp.IRepository`1">
+            <summary>
+            Interface IRepository
+            </summary>
+            <typeparam name="T"><see cref="T:StarWarsApiCSharp.BaseEntity" />Base entity.</typeparam>
+        </member>
+        <member name="M:StarWarsApiCSharp.IRepository`1.GetById(System.Int32)">
+            <summary>
+            Gets the entity by it's identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns><see cref="T:StarWarsApiCSharp.BaseEntity" />Base entity.</returns>
+        </member>
+        <member name="M:StarWarsApiCSharp.IRepository`1.GetEntities(System.Int32,System.Int32)">
+            <summary>
+            Gets entities.
+            </summary>
+            <param name="page">The page.</param>
+            <param name="size">The size of entities.</param>
+            <returns>ICollection&lt; <see cref="T:StarWarsApiCSharp.BaseEntity" /> &gt;.</returns>
+        </member>
+        <member name="T:StarWarsApiCSharp.IWebHelper">
+            <summary>
+            Helper for retrieve request and response.
+            </summary>
+        </member>
+        <member name="M:StarWarsApiCSharp.IWebHelper.GetRequest(System.String)">
+            <summary>
+            Gets instance of <see cref="T:System.Net.WebRequest"/>.
+            </summary>
+            <param name="url">The URL.</param>
+            <returns>Initialized <see cref="T:System.Net.WebRequest"/>.</returns>
+        </member>
+        <member name="M:StarWarsApiCSharp.IWebHelper.GetResponse(System.Net.WebRequest)">
+            <summary>
+            Gets the instance of <see cref="T:System.Net.WebResponse"/> from request.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>Response from request.</returns>
+        </member>
+        <member name="T:StarWarsApiCSharp.Person">
+            <summary>
+            Class Person.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.BaseEntity" />
+        </member>
+        <member name="F:StarWarsApiCSharp.Person.PathToEntity">
+            <summary>
+            The path that will be added to base API URL.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.BirthYear">
+            <summary>
+            Gets or sets the birth year. It can return "unknown" as value.
+            </summary>
+            <value>The birth year.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.EyeColor">
+            <summary>
+            Gets or sets the color of the eye. It can return "unknown" as value.
+            </summary>
+            <value>The color of the eye.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Gender">
+            <summary>
+            Gets or sets the gender. It can return "n/a" as value
+            </summary>
+            <value>The gender.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.HairColor">
+            <summary>
+            Gets or sets the color of the hair. It can return "unknown" as value.
+            </summary>
+            <value>The color of the hair.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Height">
+            <summary>
+            Gets or sets the height. It can return "unknown" as value.
+            </summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Mass">
+            <summary>
+            Gets or sets the mass. It can return "unknown" as value.
+            </summary>
+            <value>The mass.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.SkinColor">
+            <summary>
+            Gets or sets the color of the skin. It can return "unknown" as value.
+            </summary>
+            <value>The color of the skin.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Homeworld">
+            <summary>
+            Gets or sets the home world.
+            </summary>
+            <value>The home world.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Films">
+            <summary>
+            Gets or sets the films URLs.
+            </summary>
+            <value>The films.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Species">
+            <summary>
+            Gets or sets the species URLs.
+            </summary>
+            <value>The species.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Starships">
+            <summary>
+            Gets or sets the star ships URLs.
+            </summary>
+            <value>The star ships.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.Vehicles">
+            <summary>
+            Gets or sets the vehicles URLs.
+            </summary>
+            <value>The vehicles.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Person.EntryPath">
+            <summary>
+            Gets the path for extending base URL API.
+            </summary>
+            <value>The path.</value>
+        </member>
+        <member name="T:StarWarsApiCSharp.Planet">
+            <summary>
+            Class Planet.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.BaseEntity" />
+        </member>
+        <member name="F:StarWarsApiCSharp.Planet.PathToEntity">
+            <summary>
+            The path that will be added to base API URL.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.Name">
+            <summary>
+            Gets or sets the name. It can return "unknown" as value.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.Diameter">
+            <summary>
+            Gets or sets the diameter. It can return "unknown" as value.
+            </summary>
+            <value>The diameter.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.RotationPeriod">
+            <summary>
+            Gets or sets the rotation period. It can return "unknown" as value.
+            </summary>
+            <value>The rotation period.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.OrbitalPeriod">
+            <summary>
+            Gets or sets the orbital period. It can return "unknown" as value.
+            </summary>
+            <value>The orbital period.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.Gravity">
+            <summary>
+            Gets or sets the gravity. It can return "unknown" or "N/A" as value.
+            </summary>
+            <value>The gravity.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.Climate">
+            <summary>
+            Gets or sets the climate. Variables joined by comma and space. It can return "unknown" as value.
+            </summary>
+            <value>The climate.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.Terrain">
+            <summary>
+            Gets or sets the terrain. Variables joined by comma and space. It can return "unknown" as value.
+            </summary>
+            <value>The terrain.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.SurfaceWater">
+            <summary>
+            Gets or sets the surface water quantity. It can return "unknown" as value.
+            </summary>
+            <value>The surface water.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.Residents">
+            <summary>
+            Gets or sets the residents URLs.
+            </summary>
+            <value>The residents.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.Films">
+            <summary>
+            Gets or sets the films URLs.
+            </summary>
+            <value>The films.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Planet.EntryPath">
+            <summary>
+            Gets the path for extending base URL API.
+            </summary>
+            <value>The path.</value>
+        </member>
+        <member name="T:StarWarsApiCSharp.Repository`1">
+            <summary>
+            Class Repository holds <see cref="T:StarWarsApiCSharp.IRepository`1" /> entities to work with them.
+            </summary>
+            <typeparam name="T"><see cref="T:StarWarsApiCSharp.IRepository`1" />Base entity.</typeparam>
+            <seealso cref="T:StarWarsApiCSharp.IRepository`1" />
+        </member>
+        <member name="F:StarWarsApiCSharp.Repository`1.Api">
+            <summary>
+            The default API URL from where entities are downloaded.
+            </summary>
+        </member>
+        <member name="F:StarWarsApiCSharp.Repository`1.DefaultPage">
+            <summary>
+            The default page.
+            </summary>
+        </member>
+        <member name="F:StarWarsApiCSharp.Repository`1.DefaultSize">
+            <summary>
+            The default size of entities.
+            </summary>
+        </member>
+        <member name="F:StarWarsApiCSharp.Repository`1.urlEndCharacter">
+            <summary>
+            The URL end character. By default is "/" slash.
+            </summary>
+        </member>
+        <member name="F:StarWarsApiCSharp.Repository`1.urlData">
+            <summary>
+            The URL data that will be used in data service.
+            </summary>
+        </member>
+        <member name="F:StarWarsApiCSharp.Repository`1.dataService">
+            <summary>
+            The data service for entities.
+            </summary>
+        </member>
+        <member name="F:StarWarsApiCSharp.Repository`1.entity">
+            <summary>
+            The base entity.
+            <seealso cref="T:StarWarsApiCSharp.BaseEntity" />
+            </summary>
+        </member>
+        <member name="M:StarWarsApiCSharp.Repository`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:StarWarsApiCSharp.Repository`1" /> class.
+            Uses the default data service and URL for gather data.
+            </summary>
+        </member>
+        <member name="M:StarWarsApiCSharp.Repository`1.#ctor(StarWarsApiCSharp.IDataService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StarWarsApiCSharp.Repository`1"/> class. Uses a default URL for gather data.
+            </summary>
+            <param name="dataService">The data service to get entities.</param>
+            <example>Data service getting data from JSON document, other database etc.</example>
+        </member>
+        <member name="M:StarWarsApiCSharp.Repository`1.#ctor(StarWarsApiCSharp.IDataService,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:StarWarsApiCSharp.Repository`1"/> class.
+            </summary>
+            <param name="dataService">The data service to get entities.</param>
+            <param name="url">The URL for consuming. It will be used in the service. Examples: http://mySite.com, http://mySite.com/ .</param>
+            <example>Data service getting data from JSON document, other database etc.</example>
+        </member>
+        <member name="P:StarWarsApiCSharp.Repository`1.Path">
+            <summary>
+            Gets the base path for consuming entities.
+            </summary>
+            <value>The path.</value>
+        </member>
+        <member name="M:StarWarsApiCSharp.Repository`1.GetById(System.Int32)">
+            <summary>
+            Gets the entity by it's identifier.
+            </summary>
+            <param name="id">The identifier of the entity.</param>
+            <returns><see cref="T:StarWarsApiCSharp.IRepository`1" /></returns>
+        </member>
+        <member name="M:StarWarsApiCSharp.Repository`1.GetEntities(System.Int32,System.Int32)">
+            <summary>
+            Gets entities.
+            </summary>
+            <param name="page">The page.</param>
+            <param name="size">The size of the entities.</param>
+            <returns>ICollection&lt; <see cref="T:StarWarsApiCSharp.IRepository`1" /> &gt;.</returns>
+        </member>
+        <member name="T:StarWarsApiCSharp.Specie">
+            <summary>
+            Class Specie.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.BaseEntity" />
+        </member>
+        <member name="F:StarWarsApiCSharp.Specie.PathToEntity">
+            <summary>
+            The path that will be added to base API URL.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.Classification">
+            <summary>
+            Gets or sets the classification. It can return "unknown" as value.
+            </summary>
+            <value>The classification.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.Designation">
+            <summary>
+            Gets or sets the designation.
+            </summary>
+            <value>The designation.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.AverageHeight">
+            <summary>
+            Gets or sets the average height. It can return "unknown" as value.
+            </summary>
+            <value>The average height.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.AverageLifespan">
+            <summary>
+            Gets or sets the average lifespan. It can return "unknown" as value.
+            </summary>
+            <value>The average lifespan.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.EyeColors">
+            <summary>
+            Gets or sets the eye colors. Variables joined by comma and space. It can return "unknown" as value.
+            </summary>
+            <value>The eye colors.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.HairColors">
+            <summary>
+            Gets or sets the hair colors. Variables joined by comma and space. It can return "unknown" as value.
+            </summary>
+            <value>The hair colors.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.SkinColors">
+            <summary>
+            Gets or sets the skin colors. Variables joined by comma and space.
+            </summary>
+            <value>The skin colors.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.Language">
+            <summary>
+            Gets or sets the language. It can return "unknown" as value.
+            </summary>
+            <value>The language.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.Homeworld">
+            <summary>
+            Gets or sets the home world.
+            </summary>
+            <value>The home world.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.People">
+            <summary>
+            Gets or sets the people URLs.
+            </summary>
+            <value>The people.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.Films">
+            <summary>
+            Gets or sets the films URLs.
+            </summary>
+            <value>The films.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Specie.EntryPath">
+            <summary>
+            Gets the path for extending base URL API.
+            </summary>
+            <value>The path.</value>
+        </member>
+        <member name="T:StarWarsApiCSharp.Starship">
+            <summary>
+            Class Starship. Some of properties can have unknown as a value.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.BaseEntity" />
+        </member>
+        <member name="F:StarWarsApiCSharp.Starship.PathToEntity">
+            <summary>
+            The path that will be added to base API URL.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Model">
+            <summary>
+            Gets or sets the model.
+            </summary>
+            <value>The model.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.StarshipClass">
+            <summary>
+            Gets or sets the starship class.
+            </summary>
+            <value>The starship class.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Manufacturer">
+            <summary>
+            Gets or sets the manufacturer.
+            </summary>
+            <value>The manufacturer.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.CostInCredits">
+            <summary>
+            Gets or sets the cost in credits. It can return "unknown" as value.
+            </summary>
+            <value>The cost in credits.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Length">
+            <summary>
+            Gets or sets the length. It can return "unknown" as value.
+            </summary>
+            <value>The length.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Crew">
+            <summary>
+            Gets or sets the Crew count as string. It can return "unknown" as value.
+            </summary>
+            <value>The crew.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Passengers">
+            <summary>
+            Gets or sets the passengers count as string. It can return "unknown" as value.
+            </summary>
+            <value>The passengers.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.MaxAtmospheringSpeed">
+            <summary>
+            Gets or sets the max atmospheric speed. It can return "N/A" as value.
+            </summary>
+            <value>The maximum atmospheric speed.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.HyperdriveRating">
+            <summary>
+            Gets or sets the hyper drive rating. It can return "unknown" as value.
+            </summary>
+            <value>The hyper drive rating.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.MegaLights">
+            <summary>
+            Gets or sets the mega lights. It can return "unknown" as value.
+            </summary>
+            <value>The mega lights.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.CargoCapacity">
+            <summary>
+            Gets or sets the cargo capacity. It can return "unknown" as value.
+            </summary>
+            <value>The cargo capacity.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Consumables">
+            <summary>
+            Gets or sets the consumables period. It can return "unknown" as value.
+            </summary>
+            <value>The consumables.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Films">
+            <summary>
+            Gets or sets the films URLs.
+            </summary>
+            <value>The films.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.Pilots">
+            <summary>
+            Gets or sets the pilots URLs.
+            </summary>
+            <value>The pilots.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Starship.EntryPath">
+            <summary>
+            Gets the path for extending base URL API.
+            </summary>
+            <value>The path.</value>
+        </member>
+        <member name="T:StarWarsApiCSharp.Vehicle">
+            <summary>
+            Class Vehicle.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.BaseEntity" />
+        </member>
+        <member name="F:StarWarsApiCSharp.Vehicle.PathToEntity">
+            <summary>
+            The path that will be added to base API URL.
+            </summary>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Model">
+            <summary>
+            Gets or sets the model.
+            </summary>
+            <value>The model.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.VehicleClass">
+            <summary>
+            Gets or sets the vehicle class.
+            </summary>
+            <value>The vehicle class.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Manufacturer">
+            <summary>
+            Gets or sets the manufacturer. It can return "unknown" as value.
+            </summary>
+            <value>The manufacturer.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Length">
+            <summary>
+            Gets or sets the length. It can return "unknown" as value.
+            </summary>
+            <value>The length.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.CostInCredits">
+            <summary>
+            Gets or sets the cost in credits. It can return "unknown" as value.
+            </summary>
+            <value>The cost in credits.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Crew">
+            <summary>
+            Gets or sets the crew count as string.
+            </summary>
+            <value>The crew.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Passengers">
+            <summary>
+            Gets or sets the passengers count as string. It can return "unknown" as value.
+            </summary>
+            <value>The passengers.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.MaxAtmospheringSpeed">
+            <summary>
+            Gets or sets the maximum atmospheric speed integer as string. It can return "unknown" as value.
+            </summary>
+            <value>The maximum atmospheric speed.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.CargoCapacity">
+            <summary>
+            Gets or sets the cargo capacity. It can return "unknown" as value.
+            </summary>
+            <value>The cargo capacity.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Consumables">
+            <summary>
+            Gets or sets the consumables period. It can return "unknown" as value.
+            </summary>
+            <value>The consumables.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Films">
+            <summary>
+            Gets or sets the films URLs.
+            </summary>
+            <value>The films.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.Pilots">
+            <summary>
+            Gets or sets the pilots URLs.
+            </summary>
+            <value>The pilots.</value>
+        </member>
+        <member name="P:StarWarsApiCSharp.Vehicle.EntryPath">
+            <summary>
+            Gets the path for extending base URL API.
+            </summary>
+            <value>The path.</value>
+        </member>
+        <member name="T:StarWarsApiCSharp.WebHelper">
+            <summary>
+            Helper class implements <see cref="T:StarWarsApiCSharp.IWebHelper" />. Retrieves <see cref="T:System.Net.WebRequest" /> and <see cref="T:System.Net.WebResponse" />.
+            </summary>
+            <seealso cref="T:StarWarsApiCSharp.IWebHelper" />
+        </member>
+        <member name="M:StarWarsApiCSharp.WebHelper.GetRequest(System.String)">
+            <summary>
+            Gets instance of <see cref="T:System.Net.WebRequest" />.
+            </summary>
+            <param name="url">The URL.</param>
+            <returns>
+            Initialized <see cref="T:System.Net.WebRequest" />.
+            </returns>
+        </member>
+        <member name="M:StarWarsApiCSharp.WebHelper.GetResponse(System.Net.WebRequest)">
+            <summary>
+            Gets the instance of <see cref="T:System.Net.WebResponse" /> from request.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>
+            Response from request.
+            </returns>
+        </member>
+    </members>
+</doc>
